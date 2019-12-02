@@ -18,7 +18,8 @@ module.exports = {
   // use thread-loader for babel & TS in production build // enabled by default if the machine has more than 1 cores
   css: {
     loaderOptions: {},
-    modules: true
+    // modules: false,
+    requireModuleExtension: false,
   },
 
   // configure webpack-dev-server behavior
