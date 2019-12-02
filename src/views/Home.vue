@@ -17,19 +17,14 @@
     background-color: #D3DCE6;
     color: #333;
     text-align: center;
-    /* line-height: 200px; */
-    display: inline-block;
-    line-height: calc(100vh - 80px);
+    line-height: calc(100vh - 120px);
   }
   
   .el-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
-    /* line-height: 200px; */
-    display: inline-block;
-    width: calc(100% - 200px);
-    line-height: calc(100vh - 80px);
+    line-height: calc(100vh - 120px);
   }
 
 </style>>

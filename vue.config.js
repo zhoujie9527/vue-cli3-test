@@ -16,11 +16,11 @@ module.exports = {
   configureWebpack: () => {},
 
   // use thread-loader for babel & TS in production build // enabled by default if the machine has more than 1 cores
-  css: {
-    loaderOptions: {},
-    // modules: false,
-    requireModuleExtension: false,
-  },
+  // css: {
+  //   loaderOptions: {},
+  //   // modules: false,
+  //   requireModuleExtension: false,
+  // },
 
   // configure webpack-dev-server behavior
   pwa: {},
@@ -39,5 +39,6 @@ module.exports = {
 
   pluginOptions: {
     // ...
-  }
+  },
+
 };

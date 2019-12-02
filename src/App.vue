@@ -1,18 +1,40 @@
 <template>
     <div id="app">
-      <el-header>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/PageB">PageB</router-link>
-      </el-header>
+        <el-menu
+          :default-active="activeIndex"
+          class="el-menu-demo"
+          mode="horizontal"
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b">
+        <el-menu-item index="1">
+          <router-link to="/">Home</router-link>
+        </el-menu-item>
+        <el-menu-item index="2">
+          <router-link to="/PageB">PageB</router-link>
+        </el-menu-item>
+        </el-menu>
       <router-view/>
     </div>
 </template>
 
 <style>
   .el-header, .el-footer {
-    background-color: #B3C0D1;
-    color: #333;
-    text-align: center;
     line-height: 60px;
   }
 </style>
+
+<script>
+  export default {
+    data() {
+      return {
+        activeIndex: '1',
+      };
+    },
+    methods: {
+      // handleSelect(key, keyPath) {
+      //   console.log(key, keyPath);
+      // }
+    }
+  }
+</script>
