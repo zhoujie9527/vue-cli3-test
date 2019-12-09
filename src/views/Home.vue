@@ -2,13 +2,13 @@
 <template>
   <div class="Home">
     <div class="bubCircle">
-    <div class="bubble" style="left: 275px;top:260px;">
+    <div class="bubble" style="left: 84px; top:160px;">
       <div class="info">A</div>
     </div>
-     <div class="bubble" style="left: 555px;top: 385px;">
+     <div class="bubble" style="left: 511px; top: 84px;">
       <div class="info">B</div>
     </div>
-     <div class="bubble" style="left: 328px;top: 526px;">
+     <div class="bubble" style="left: 282px; top: 120px;">
       <div class="info">C</div>
     </div>
     </div>
@@ -39,7 +39,7 @@ export default {
   height: calc(100vh - 80px);
 }
 .bubble {
-  position: fixed;
+  position: relative;
   width: 80px;
   height: 80px;
   background-size: cover;
@@ -67,7 +67,7 @@ export default {
 .goDown {
   cursor: pointer;
   position: absolute;
-  margin-top: 40%;
+   margin-top: 40%;
   margin-left: 47%;
   color: aliceblue;
   animation-name: breath;                         /* 动画名称 */
@@ -78,6 +78,27 @@ export default {
 .el-icon-arrow-down {
   font-size: 40px;
 }
+.bubCircle {
+  position: fixed;
+  width: 35%;
+  height: 50vh;
+  margin-left: 31%;
+  /* animation: xuanzhuan 5s linear infinite; */
+  transform-origin: center center; 
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes xuanzhuan {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+    transition: all 5s;
+  }
+}
+
 @keyframes breath {
     from { opacity: 0.1; }                          /* 动画开始时的透明度 */
     50%  { opacity:   1; }                          /* 动画50% 时的透明度 */
