@@ -2,7 +2,7 @@
 <template>
   <div class="Home">
     <div class="bubCircle">
-    <div class="bubble" style="left: 84px; top:160px;">
+    <!-- <div class="bubble" style="left: 84px; top:160px;">
       <div class="info">A</div>
     </div>
      <div class="bubble" style="left: 511px; top: 84px;">
@@ -10,8 +10,15 @@
     </div>
      <div class="bubble" style="left: 282px; top: 120px;">
       <div class="info">C</div>
+    </div> -->
     </div>
-    </div>
+    <div class="ball ball1">1</div>
+    <div class="ball ball2">2</div>
+    <div class="ball ball3">3</div>
+    <div class="ball ball4">4</div>
+    <div class="ball ball5">5</div>
+    <div class="ball ball6">6</div>
+    <div class="ball ball7">7</div>
     <div class="botImg" />
     <div id="tonext" @click="nextPage" class="goDown">
       <div style="font-size: 21px">向下</div>
@@ -53,6 +60,7 @@ export default {
   color:darkseagreen;
   border-radius: 50%;
   background: linear-gradient(-53deg, aqua 0, aqua 15%,#ebf2ff 75%,#d4e0ff 100%);
+  transform: rotateX(20deg);
 }
 .botImg {
   position: fixed;
@@ -78,25 +86,87 @@ export default {
 .el-icon-arrow-down {
   font-size: 40px;
 }
+
+/* 循环旋转 */
 .bubCircle {
   position: fixed;
   width: 35%;
   height: 50vh;
   margin-left: 31%;
-  /* animation: xuanzhuan 5s linear infinite; */
-  transform-origin: center center; 
-  transform-style: preserve-3d;
-  transform: translate3d(0, 0, 0);
+	border-radius: 50%;
 }
+ /* 3D元素距视图的距离（perspective）也可实现近大远小的效果 */
+.ball {
+	width: 80px;
+	height: 80px;
+  margin-left: 34%;
+  margin-top: 5%;
+	text-align: center;
+  background: linear-gradient(-53deg, aqua 0, aqua 15%,#ebf2ff 75%,#d4e0ff 100%);
+	border-radius: 50%;
+	position: absolute;
+  color:#fff;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index: 999;
+}
+/* 7个圆,x和y轴动画加起来是20s , 20/7 约等于 2.857 每个球y轴 从0递减2.857,x轴与y差10/2s */
+ .ball1 {
+    animation: animX 10s cubic-bezier(0.36, 0, 0.64, 1) -5s infinite alternate,
+    animY 10s cubic-bezier(0.36, 0, 0.64, 1) 0s infinite alternate,
+    scale 20s cubic-bezier(0.36, 0, 0.64, 1) 0s infinite alternate;
 
-@keyframes xuanzhuan {
-  from {
-    transform: rotateY(0deg);
   }
-  to {
-    transform: rotateY(360deg);
-    transition: all 5s;
+
+  .ball2 {
+    animation: animX 10s cubic-bezier(0.36, 0, 0.64, 1) -7.857s infinite alternate,
+    animY 10s cubic-bezier(0.36, 0, 0.64, 1) -2.857s infinite alternate,
+    scale 20s cubic-bezier(0.36, 0, 0.64, 1) -2.857s infinite alternate;
   }
+
+  .ball3 {
+    animation: animX 10s cubic-bezier(0.36, 0, 0.64, 1) -10.714s infinite alternate,
+    animY 10s cubic-bezier(0.36, 0, 0.64, 1) -5.714s infinite alternate,
+    scale 20s cubic-bezier(0.36, 0, 0.64, 1) -5.714s infinite alternate;
+  }
+
+  .ball4 {
+    animation: animX 10s cubic-bezier(0.36, 0, 0.64, 1) -13.571s infinite alternate,
+    animY 10s cubic-bezier(0.36, 0, 0.64, 1) -8.571s infinite alternate,
+    scale 20s cubic-bezier(0.36, 0, 0.64, 1) -8.571s infinite alternate;
+  }
+
+  .ball5 {
+    animation: animX 10s cubic-bezier(0.36, 0, 0.64, 1) -16.428s infinite alternate,
+    animY 10s cubic-bezier(0.36, 0, 0.64, 1) -11.428s infinite alternate,
+    scale 20s cubic-bezier(0.36, 0, 0.64, 1) -11.428s infinite alternate;
+  }
+
+  .ball6 {
+    animation: animX 10s cubic-bezier(0.36, 0, 0.64, 1) -19.285s infinite alternate,
+    animY 10s cubic-bezier(0.36, 0, 0.64, 1) -14.285s infinite alternate,
+    scale 20s cubic-bezier(0.36, 0, 0.64, 1) -14.285s infinite alternate;
+  }
+
+  .ball7 {
+    animation: animX 10s cubic-bezier(0.36, 0, 0.64, 1) -22.142s infinite alternate,
+    animY 10s cubic-bezier(0.36, 0, 0.64, 1) -17.142s infinite alternate,
+    scale 20s cubic-bezier(0.36, 0, 0.64, 1) -17.142s infinite alternate;
+  }
+@keyframes animX{
+  0% {left: 0px;}
+  100% {left: 500px;}
+}
+@keyframes animY{
+  0% {top: 0px;}
+  100% {top: 300px;}
+}
+ @keyframes scale {
+   0% {transform: scale(0.7);}
+   50% {transform: scale(1);}
+   100% {transform: scale(0.7);}
 }
 
 @keyframes breath {

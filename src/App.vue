@@ -2,16 +2,19 @@
     <div id="app">
         <el-menu
           :default-active="activeIndex"
+          @select="handleSelect"
           class="el-menu-demo"
           mode="horizontal"
           background-color="#131525"
           text-color="#fff"
           active-text-color="#ffd04b">
-        <el-menu-item index="1">
-          <router-link to="/">Home</router-link>
+        <el-menu-item index="Home">
+          <!-- <router-link to="/">Home</router-link> -->
+          Home
         </el-menu-item>
-        <el-menu-item index="2">
-          <router-link to="/System">System</router-link>
+        <el-menu-item index="System">
+          <!-- <router-link to="/System">System</router-link> -->
+          System
         </el-menu-item>
         </el-menu>
       <router-view/>
@@ -31,13 +34,13 @@
   export default {
     data() {
       return {
-        activeIndex: '1',
+        activeIndex: 'Home',
       };
     },
     methods: {
-      // handleSelect(key, keyPath) {
-      //   console.log(key, keyPath);
-      // }
+      handleSelect(key) {
+        this.$router.push(`./${key}`);
+      }
     }
   }
 </script>
